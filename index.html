@@ -1,0 +1,459 @@
+<html><head><base href="https://fmk-informatica.com/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FMK Informática - Aplicaciones Móviles y Web Innovadoras</title>
+<style>
+  :root {
+    --primary-color: #0066CC;
+    --secondary-color: #003366;
+    --background-color: #F0F8FF;
+    --text-color: #333333;
+    --accent-color: #00BFFF;
+    --card-bg-color: #FFFFFF;
+    --dark-bg-color: #1A1A1A;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  header {
+    background-color: var(--dark-bg-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(0, 102, 204, 0.1) 0%,
+      rgba(0, 102, 204, 0) 100%
+    );
+    transform: rotate(-45deg);
+    z-index: 1;
+  }
+
+  header h1, header p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo {
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    background-color: var(--secondary-color);
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    margin: 5px 15px;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  nav ul li a:hover {
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  h1, h2 {
+    color: var(--secondary-color);
+  }
+
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .app-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+
+  .app-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(
+      circle,
+      rgba(0, 102, 204, 0.1) 0%,
+      rgba(0, 102, 204, 0) 70%
+    );
+    transform: rotate(30deg);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .app-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 102, 204, 0.2);
+  }
+
+  .app-card:hover::before {
+    opacity: 1;
+  }
+
+  .app-card h3 {
+    color: var(--primary-color);
+  }
+
+  .app-type {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  .app-type.free {
+    background-color: var(--accent-color);
+    color: var(--dark-bg-color);
+  }
+
+  .app-type.subscription {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 15px var(--secondary-color);
+  }
+
+  footer {
+    background-color: var(--dark-bg-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1001;
+    }
+
+    nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--secondary-color);
+      padding: 1rem 0;
+    }
+
+    nav ul.show {
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 10px 0;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 10px 20px;
+    }
+  }
+
+  /* Animaciones */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .logo {
+    animation: pulse 2s infinite;
+  }
+
+  .app-card {
+    animation: fadeIn 0.5s ease-out;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="/a/a37e0d0c-fd1d-4368-b076-6d0c951c2692" alt="FMK Informatica logo" class="logo">
+    <p>Aplicaciones móviles y web cotidianas para usuarios y empresas</p>
+  </header>
+
+  <nav>
+    <button class="nav-toggle" aria-label="Menú">&#9776;</button>
+    <ul>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section id="aplicaciones">
+      <h2>Nuestras Aplicaciones</h2>
+      <div class="app-grid">
+        <div class="app-card">
+          <span class="app-type free">Gratis</span>
+          <h3>TaskMaster</h3>
+          <p>Organizador de tareas intuitivo para incrementar tu productividad diaria.</p>
+        </div>
+        <div class="app-card">
+          <span class="app-type subscription">Suscripción</span>
+          <h3>FinanceFlow</h3>
+          <p>Gestión financiera personal y empresarial con análisis avanzados.</p>
+        </div>
+        <div class="app-card">
+          <span class="app-type free">Gratis</span>
+          <h3>HealthTrack</h3>
+          <p>Seguimiento de hábitos saludables y rutinas de ejercicio personalizadas.</p>
+        </div>
+        <div class="app-card">
+          <span class="app-type subscription">Suscripción</span>
+          <h3>TeamSync</h3>
+          <p>Plataforma de colaboración empresarial con chat, videollamadas y gestión de proyectos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <h2>Sobre FMK Informática</h2>
+      <p>En FMK Informática, nos dedicamos a crear aplicaciones móviles y web que simplifican y mejoran la vida cotidiana de usuarios y empresas. Nuestra misión es proporcionar soluciones tecnológicas accesibles y útiles que se adapten a las necesidades cambiantes del mundo digital.</p>
+      <p>Con un enfoque en la usabilidad y la innovación, ofrecemos una gama de aplicaciones tanto gratuitas como de suscripción, garantizando que cada usuario encuentre la herramienta perfecta para sus necesidades, ya sea personal o profesional.</p>
+    </section>
+
+    <section id="planes">
+      <h2>Nuestros Planes</h2>
+      <div class="app-grid">
+        <div class="app-card">
+          <h3>Plan Gratuito</h3>
+          <ul>
+            <li>Acceso a aplicaciones básicas</li>
+            <li>Funcionalidades esenciales</li>
+            <li>Soporte comunitario</li>
+          </ul>
+        </div>
+        <div class="app-card">
+          <h3>Plan Premium</h3>
+          <ul>
+            <li>Acceso a todas las aplicaciones</li>
+            <li>Funcionalidades avanzadas</li>
+            <li>Soporte prioritario 24/7</li>
+            <li>Sincronización entre dispositivos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <form id="contact-form">
+        <input type="text" name="nombre" placeholder="Tu Nombre" required>
+        <input type="email" name="email" placeholder="Tu Email" required>
+        <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 FMK Informática. Simplificando tu vida digital.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navMenu = document.querySelector('nav ul');
+
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+
+      // Cerrar el menú al hacer clic en un enlace
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('show');
+        });
+      });
+
+      // Cerrar el menú al hacer clic fuera de él
+      document.addEventListener('click', (event) => {
+        const isClickInsideNav = navMenu.contains(event.target) || navToggle.contains(event.target);
+        if (!isClickInsideNav && navMenu.classList.contains('show')) {
+          navMenu.classList.remove('show');
+        }
+      });
+
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Simulación de envío de datos
+        console.log('Datos del formulario:', data);
+        
+        // Efecto visual de envío exitoso
+        const button = form.querySelector('button');
+        button.textContent = 'Enviando...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+          alert('¡Gracias por contactarnos! Responderemos a tu mensaje pronto.');
+          form.reset();
+          button.textContent = 'Enviar Mensaje';
+          button.disabled = false;
+        }, 1500);
+      });
+
+      // Animación suave al hacer scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Animación de entrada para las tarjetas de aplicaciones
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.app-card').forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(50px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>
